@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 import './Ideas.css'
 
 const Ideas = ({ideas, deleteIdea}) => {
-    const displayIdeas = ideas.map(idea => {
+    const displayIdeas = ideas?.map(idea => {
         return <Card 
         id={idea.id}
         key={idea.id}

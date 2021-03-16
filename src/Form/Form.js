@@ -6,7 +6,7 @@ const Form = (props) => {
     const [description, setDescription] = useState('')
 
     const submitIdea = (event) => {
-        event.preventDefault()
+        // event.preventDefault()
         const newIdea = {
             id: Date.now(),
             title,
