@@ -6,11 +6,10 @@ import { getAllIdeas, postIdea, deleteIdeaReq } from "../apiCalls";
 
 function App() {
   const [ideas, setIdeas] = useState([])
-  const [error, setError] = useState('An Error has occured')
+  const [error, setError] = useState('')
 
   const getIdeas = async () => {
-    setError('')
-
+    const error = "An Error has occurred"
     try {
       const ideas = await getAllIdeas()
       setIdeas(ideas)
