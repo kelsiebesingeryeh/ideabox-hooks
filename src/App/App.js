@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Ideas from '../Ideas/Ideas'
 import Form from '../Form/Form'
 import './App.css'
-import { getAllIdeas, postIdea } from "../apiCalls";
+import { getAllIdeas, postIdea, deleteIdeaReq } from "../apiCalls";
 
 function App() {
   const [ideas, setIdeas] = useState([])
@@ -33,18 +33,13 @@ function App() {
   }
 
   const deleteIdea = async (id) => {
-    const filteredIdeas = ideas.filter(idea => idea.id !== id)
-    setIdeas(filteredIdeas)
     try {
-      await fetch(`http://localhost:3001/api/v1/ideas/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+      deleteIdeaReq(id)
     } catch(error) {
       setError(error)
     }
+    const filteredIdeas = ideas.filter(idea => idea.id !== id)
+    setIdeas(filteredIdeas)
   }
   
   return (
